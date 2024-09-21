@@ -1,0 +1,25 @@
+.navbar {
+  width: 100%;
+  padding: 5px 0px;
+  background-color: chocolate;
+}
+
+.navbar > ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-decoration: none;
+}
+
+.navbar > ul > li {
+  text-decoration: none;
+  list-style: none;
+}
+
+.navbar > ul > li > a,
+.navbar > ul > li > button {
+  text-decoration: none !important;
+  font-size: 20px;
+  color: #fff;
+  background-color: #ffffff00;
+}

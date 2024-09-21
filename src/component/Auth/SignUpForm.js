@@ -1,13 +1,15 @@
-import React, { useReff } from "react";
+import React, { useRef } from "react";
 import classes from "./Login.module.css";
-const SignupForm = () => {
-  const emailReff = useReff();
-  const passwordReff = useReff();
-  const onSubmitHandler = () => {
-    let emailValue = emailReff.current.value;
-    let passwordValue = passwordReff.current.value;
+import { Link } from "react-router-dom/cjs/react-router-dom";
+const SignUpForm = () => {
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const onSubmitHandler = (event) => {
+    event.preventDefault();
+    let emailValue = emailRef.current.value;
+    let passwordValue = passwordRef.current.value;
     const url =
-      "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBIbNTYU0iRjY2StvrObVWKjSgg3LK5oUQ";
+      "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=";
     fetch(url, {
       method: "POST",
       body: JSON.stringify({
@@ -22,6 +24,14 @@ const SignupForm = () => {
       .then((res) => {
         if (res.ok) {
           res.json();
+        } else {
+          res.json().then((err) => {
+            let message = "Somthing Went Wrong";
+            if (err && err.error && err.error.message) {
+              message = err.error.message;
+            }
+            alert(message);
+          });
         }
       })
       .then((data) => {
@@ -36,11 +46,11 @@ const SignupForm = () => {
         <form onSubmit={onSubmitHandler}>
           <div className={classes.from_row}>
             <label>Email Id</label>
-            <input type="email" ref={emailReff} />
+            <input type="email" ref={emailRef} />
           </div>
           <div className={classes.from_row}>
             <label>Password</label>
-            <input type="password" ref={passwordReff} />
+            <input type="password" ref={passwordRef} />
           </div>
           <div className={classes.from_row}>
             <label>Confirm Password</label>
@@ -49,10 +59,14 @@ const SignupForm = () => {
           <div className={classes.from_row}>
             <button>SignUp</button>
           </div>
+
+          <div className={classes.from_row}>
+            <Link to="/login">If You Have An Account Login</Link>
+          </div>
         </form>
       </div>
     </div>
   );
 };
 
-export default SignupForm;
+export default SignUpForm;

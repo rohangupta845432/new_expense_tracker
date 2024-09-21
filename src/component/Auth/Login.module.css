@@ -35,3 +35,15 @@
   margin-top: 25px;
   margin-bottom: 20px;
 }
+
+.from_row a {
+  display: inline-block;
+  height: 30px;
+  width: 90%;
+  background-color: goldenrod;
+  color: #fff;
+  text-decoration: none;
+  margin-top: 10px;
+  padding-top: 10px !important;
+  padding-bottom: 0px;
+}

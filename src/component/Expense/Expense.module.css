@@ -1,0 +1,17 @@
+.container {
+  /* border: 1px solid black; */
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.168);
+  margin: 20px;
+  padding: 0px 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* flex-direction: row; */
+  flex-wrap: nowrap;
+}
+.item {
+  /* display: inline; */
+  text-align: center;
+  /* background-color: green; */
+  line-height: 30px;
+}
