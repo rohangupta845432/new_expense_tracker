@@ -1,6 +1,9 @@
 import React, { useContext, useRef } from "react";
 import ExpenstContext from "../../store/expense-context";
 import Card from "../UI/Card";
+import classes from "./ExpenseAdd.module.css";
+import { expenseUrl } from "../../apis_url";
+
 const ExpenseAdd = () => {
   const nameref = useRef();
   const amountref = useRef();
@@ -17,7 +20,7 @@ const ExpenseAdd = () => {
 
     console.log(formValue);
 
-    fetch("*************/expense.json", {
+    fetch(expenseUrl, {
       method: "POST",
       body: JSON.stringify(formValue),
     })
@@ -36,16 +39,31 @@ const ExpenseAdd = () => {
 
       <form onSubmit={onSubmitHandler}>
         <div>
-          <input type="text" placeholder="Date" ref={dateRef} />
+          <input
+            className={classes.input_box}
+            type="date"
+            placeholder="Date"
+            ref={dateRef}
+          />
         </div>
         <div>
-          <input type="text" placeholder="Expense Name" ref={nameref} />
+          <input
+            className={classes.input_box}
+            type="text"
+            placeholder="Expense Name"
+            ref={nameref}
+          />
         </div>
         <div>
-          <input type="text" placeholder="Amount" ref={amountref} />
+          <input
+            className={classes.input_box}
+            type="text"
+            placeholder="Amount"
+            ref={amountref}
+          />
         </div>
         <div>
-          <button>Add Expense</button>
+          <button className={classes.input_btn}>Add Expense</button>
         </div>
       </form>
     </Card>

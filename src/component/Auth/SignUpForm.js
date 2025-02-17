@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import classes from "./Login.module.css";
 import { Link } from "react-router-dom/cjs/react-router-dom";
+import { signUpUrl } from "../../apis_url";
 const SignUpForm = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -8,8 +9,8 @@ const SignUpForm = () => {
     event.preventDefault();
     let emailValue = emailRef.current.value;
     let passwordValue = passwordRef.current.value;
-    const url =
-      "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=";
+    const url = signUpUrl;
+
     fetch(url, {
       method: "POST",
       body: JSON.stringify({

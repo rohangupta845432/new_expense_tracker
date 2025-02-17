@@ -11,6 +11,8 @@
 # production
 /build
 
+#apis_url
+/src/apis_url.js
 # misc
 .DS_Store
 .env.local

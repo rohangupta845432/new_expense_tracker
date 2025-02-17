@@ -1,18 +1,24 @@
 import React, { useContext, useRef } from "react";
 import classes from "./Login.module.css";
-import { Link, useHistory } from "react-router-dom/cjs/react-router-dom";
+import {
+  Link,
+  NavLink,
+  useHistory,
+} from "react-router-dom/cjs/react-router-dom";
 import AuthContext from "../../store/auth-context";
+import { loginUrl } from "../../apis_url";
+
 const LoginForm = () => {
   const authCtx = useContext(AuthContext);
   const history = useHistory();
   const emailRef = useRef();
   const passwordRef = useRef();
+
   const onSubmitHandler = (event) => {
     event.preventDefault();
     let emailValue = emailRef.current.value;
     let passwordValue = passwordRef.current.value;
-    const url =
-      "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=";
+    const url = loginUrl;
     fetch(url, {
       method: "POST",
       body: JSON.stringify({
@@ -59,10 +65,10 @@ const LoginForm = () => {
           </div>
           <div className={classes.from_row}>
             <button>SignUp</button>
-            <Link to="/forgotpassword">Forgot Password</Link>
+            <NavLink to="/forgotpassword">Forgot Password</NavLink>
           </div>
           <div className={classes.from_row}>
-            <Link to="signup">SignUp</Link>
+            <NavLink to="signup">SignUp</NavLink>
           </div>
         </form>
       </div>

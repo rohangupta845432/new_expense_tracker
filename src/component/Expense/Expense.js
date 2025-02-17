@@ -5,9 +5,12 @@ const Expense = (props) => {
   const { dispatch } = useContext(ExpenstContext);
 
   const deleteHandler = (id) => {
-    fetch(`https://*****************/expense/${id}.json`, {
-      method: "DELETE",
-    })
+    fetch(
+      `https://expense-tracker-cbbde-default-rtdb.firebaseio.com/expense/${id}.json`,
+      {
+        method: "DELETE",
+      }
+    )
       .then((res) => {
         return res.json();
       })

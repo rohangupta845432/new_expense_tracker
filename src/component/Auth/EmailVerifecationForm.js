@@ -1,5 +1,6 @@
 import { useContext, useRef, useState } from "react";
 import AuthContext from "../../store/auth-context";
+import { verifyEmailUrl } from "../../apis_url";
 
 const EmailVerifecationForm = () => {
   const otpRef = useRef();
@@ -41,8 +42,8 @@ const EmailVerifecationForm = () => {
   const onSubmitHandler = (event) => {
     event.preventdefault();
     console.log(otpRef.current.value);
-    const url =
-      "https://identitytoolkit.googleapis.com/v1/accounts:update?key=";
+    const url = verifyEmailUrl;
+
     fetch(url, {
       method: "POST",
       body: { oobCode: otpRef.current.value },

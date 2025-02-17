@@ -1,0 +1,15 @@
+.input_box {
+  width: 300px;
+  height: 30px;
+  padding: 5px;
+  margin: 10px;
+  border: 2px solid #00000021;
+  border-radius: 10px;
+}
+.input_btn {
+  background-color: #d2691e;
+  color: #fff;
+  height: 40px;
+  width: 300px;
+  border-radius: 10px;
+}

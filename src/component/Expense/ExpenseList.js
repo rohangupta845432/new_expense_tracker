@@ -10,7 +10,7 @@ const ExpenseList = () => {
       {expenses.map((expense) => {
         return (
           <Expense
-            id={expense.id}
+            id={expense.name}
             name={expense.name}
             date={expense.date}
             amount={expense.amount}
