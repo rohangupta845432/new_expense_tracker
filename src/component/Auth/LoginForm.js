@@ -1,10 +1,6 @@
 import React, { useContext, useRef } from "react";
 import classes from "./Login.module.css";
-import {
-  Link,
-  NavLink,
-  useHistory,
-} from "react-router-dom/cjs/react-router-dom";
+import { NavLink, useHistory } from "react-router-dom/cjs/react-router-dom";
 import AuthContext from "../../store/auth-context";
 import { loginUrl } from "../../apis_url";
 
@@ -18,6 +14,10 @@ const LoginForm = () => {
     event.preventDefault();
     let emailValue = emailRef.current.value;
     let passwordValue = passwordRef.current.value;
+
+    if ((emailValue === "", passwordValue === "")) {
+      return null;
+    }
     const url = loginUrl;
     fetch(url, {
       method: "POST",
@@ -44,7 +44,8 @@ const LoginForm = () => {
         }
       })
       .then((data) => {
-        authCtx.login(data.idToken);
+        console.log(data);
+        authCtx.login(data.idToken, data.email);
         alert(data.email);
         history.replace("/profile");
       });

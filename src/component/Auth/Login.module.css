@@ -1,13 +1,13 @@
 .login_div {
   width: 100%;
-  height: 100vh;
-  background: gray;
+  height: 100vh !important;
+  background: gray !important;
 }
 .form_div {
   text-align: center;
   width: 350px;
   padding: 20px;
-  background: #ffffff2b;
+  background: #ffffff2b !important;
   position: absolute;
   top: 30%;
   left: 50%;
@@ -19,7 +19,7 @@
   font-weight: bold;
 }
 .form_div form {
-  background: #ffffff75;
+  background: #ffffff75 !important;
   padding: 30px;
 }
 

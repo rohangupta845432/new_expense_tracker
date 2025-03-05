@@ -1,13 +1,117 @@
 body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h4,
+h3 {
+  margin: 10px 0;
+  color: #333;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-top: 10px;
+}
+
+.theme-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.theme-form > label {
+  font-weight: bold;
+  text-align: left;
+  display: block;
+}
+
+.theme-form > input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+.theme-form > select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.theme-label {
+  font-weight: bold;
+  text-align: left;
+  display: block;
+}
+
+.theme-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.theme-button {
+  background-color: #d2691e;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+.theme-button-danger {
+  background-color: #c91010;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.theme-button:hover {
+  background-color: #b56023;
+}
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+}
+.m-5 {
+  margin: 5px;
+}
+[data-theme="dark"] {
+  label,
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    color: #ccc;
+  }
+  .theme-form > input {
+    background: #333 !important;
+    color: #ccc;
+  }
+  .theme-form > select {
+    background: #333 !important;
+    color: #ccc;
+  }
 }

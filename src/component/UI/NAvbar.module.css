@@ -1,14 +1,19 @@
 .navbar {
   width: 100%;
+  height: 40px;
   padding: 5px 0px;
   background-color: chocolate;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .navbar > ul {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: end;
   text-decoration: none;
+  margin: 0px 10px;
 }
 
 .navbar > ul > li {
@@ -19,7 +24,34 @@
 .navbar > ul > li > a,
 .navbar > ul > li > button {
   text-decoration: none !important;
-  font-size: 20px;
-  color: #fff;
-  background-color: #ffffff00;
+  font-size: 14px;
+  background: #d2691e;
+  border: 0px;
+  color: white;
+  padding: 10px;
+  margin-top: 0px;
+  margin-left: 10px;
+}
+.navbar > ul > li > a:hover {
+  background: #b56023;
+}
+.navbar > ul > li > button:hover {
+  background: #b56023;
+}
+
+[data-theme="dark"] {
+  .navbar {
+    background-color: #2d2d2d;
+  }
+  .navbar > ul > li > a,
+  .navbar > ul > li > button {
+    background: #2d2d2d;
+    color: rgb(182, 182, 182);
+  }
+  .navbar > ul > li > a:hover {
+    background: #161616;
+  }
+  .navbar > ul > li > button:hover {
+    background: #161616;
+  }
 }

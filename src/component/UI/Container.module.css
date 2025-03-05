@@ -5,3 +5,9 @@
   background-color: rgb(168, 178, 187);
   min-height: 100vh !important;
 }
+
+[data-theme="dark"] {
+  .container {
+    background-color: rgb(4, 4, 4);
+  }
+}

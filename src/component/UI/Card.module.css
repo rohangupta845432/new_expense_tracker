@@ -1,6 +1,13 @@
 .card {
-  margin: 20px;
   padding: 20px;
   background-color: #fff;
   text-align: center;
+}
+
+[data-theme="dark"] {
+  .card {
+    padding: 20px;
+    background-color: #292929;
+    text-align: center;
+  }
 }

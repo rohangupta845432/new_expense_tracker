@@ -5,10 +5,14 @@ import AuthContext from "../../store/auth-context";
 import { useContext } from "react";
 
 import classes from "./NAvbar.module.css";
+// import ExpenstContext from "../../store/expense-context";
+import ThemeSwitcher from "./ThemeSwitcher";
 const Navbar = () => {
   const authCtx = useContext(AuthContext);
+  // const expCtx = useContext(ExpenstContext);
   return (
     <div className={classes.navbar}>
+      <h4>Expense Tracker</h4>
       <ul>
         {authCtx.isLogin && (
           <li>
@@ -23,6 +27,11 @@ const Navbar = () => {
         {authCtx.isLogin && (
           <li>
             <Logout />
+          </li>
+        )}
+        {authCtx.isLogin && (
+          <li>
+            <ThemeSwitcher />
           </li>
         )}
       </ul>

@@ -1,6 +1,6 @@
 import { useContext, useRef, useState } from "react";
 import AuthContext from "../../store/auth-context";
-import { verifyEmailUrl } from "../../apis_url";
+import { verifyEmailOobUrl, verifyEmailUrl } from "../../apis_url";
 
 const EmailVerifecationForm = () => {
   const otpRef = useRef();
@@ -9,19 +9,16 @@ const EmailVerifecationForm = () => {
   const onVerifyEmailHandler = () => {
     const loginToken = authCtx.token;
 
-    fetch(
-      "https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=AIzaSyBIbNTYU0iRjY2StvrObVWKjSgg3LK5oUQ",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          requestType: "VERIFY_EMAIL",
-          idToken: loginToken,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
+    fetch(verifyEmailUrl, {
+      method: "POST",
+      body: JSON.stringify({
+        requestType: "VERIFY_EMAIL",
+        idToken: loginToken,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
       .then((res) => {
         if (res.ok) {
           return res.json();
@@ -42,9 +39,8 @@ const EmailVerifecationForm = () => {
   const onSubmitHandler = (event) => {
     event.preventdefault();
     console.log(otpRef.current.value);
-    const url = verifyEmailUrl;
 
-    fetch(url, {
+    fetch(verifyEmailOobUrl, {
       method: "POST",
       body: { oobCode: otpRef.current.value },
       headers: {
@@ -62,7 +58,9 @@ const EmailVerifecationForm = () => {
   };
   return (
     <div>
-      <button onClick={onVerifyEmailHandler}>Verify Your Email</button>
+      <button onClick={onVerifyEmailHandler} className="theme-button">
+        Verify Your Email
+      </button>
       {inputShow && (
         <form onSubmit={onSubmitHandler}>
           <input placeholder="Enter Otp" ref={otpRef} />
